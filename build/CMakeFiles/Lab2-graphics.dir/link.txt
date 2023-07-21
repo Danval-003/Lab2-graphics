@@ -1,0 +1,1 @@
+/usr/bin/c++ "CMakeFiles/Lab2-graphics.dir/main.cpp.o" "CMakeFiles/Lab2-graphics.dir/render.cpp.o" "CMakeFiles/Lab2-graphics.dir/color.cpp.o" "CMakeFiles/Lab2-graphics.dir/framebuffer.cpp.o" -o Lab2-graphics  -lSDL2 
