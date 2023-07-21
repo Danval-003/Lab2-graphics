@@ -7,12 +7,8 @@
 using namespace std;
 
 // Dimensiones de la ventana
-const int WINDOW_WIDTH = pantallaAncho;
-const int WINDOW_HEIGHT = pantallaAlto;
-
-// Dimensiones de la raqueta
-const int PADDLE_WIDTH = 20;
-const int PADDLE_HEIGHT = 100;
+const int WINDOW_WIDTH = pantallaAncho*3;
+const int WINDOW_HEIGHT = pantallaAlto *3;
 
 struct cell{
     int x;
@@ -40,7 +36,6 @@ bool getNextCellState(int x, int y) {
     bool currentState = getCellState(x, y);
     if (currentState) {
         // La célula está viva (blanco)
-        cout<<x<<','<<y<<' '<<aliveNeighbors<< endl;
 
         if (aliveNeighbors < 2 || aliveNeighbors > 3) {
             // underpopulation o overpopulation, la célula muere
@@ -88,65 +83,51 @@ void render(SDL_Renderer* renderer) {
     // Render the framebuffer to the screen
     renderBuffer(renderer);
 }
-
 void setInitialPoints() {
     vector<cell> initialPoints = {
-        // Oscilador "Toad" (Período 2)
-        {50, 20},
-        {51, 20},
-        {52, 20},
-        {49, 21},
-        {50, 21},
-        {51, 21},
-        // Oscilador "Toad" (Período 2)
-        {65, 25},
-        {66, 25},
-        {67, 25},
-        {66, 26},
-        {67, 26},
-        {68, 26},
-                // Oscilador "Blinker" (Período 2)
-        {10, 10},
-        {11, 10},
-        {12, 10},
-        // Oscilador "Blinker" (Período 2)
-        {25, 15},
-        {26, 15},
-        {27, 15},
-        // Agrega más puntos aquí si lo deseas
-        // Nave "Glider"
-        {5, 5},
-        {6, 6},
-        {4, 7},
-        {5, 7},
-        {6, 7},
-        // Nave "Glider"
-        {30, 40},
-        {31, 41},
-        {32, 39},
-        {32, 40},
-        {32, 41},
-                // Nave "LWSS"
-        {70, 50},
-        {71, 50},
-        {72, 50},
-        {73, 50},
-        {69, 51},
-        {73, 51},
-        {73, 52},
-        {69, 53},
-        {72, 53},
-        // Nave "LWSS"
-        {15, 70},
-        {16, 70},
-        {17, 70},
-        {18, 70},
-        {14, 71},
-        {18, 71},
-        {18, 72},
-        {14, 73},
-        {17, 73},
-        // Agrega más puntos aquí si lo deseas
+        // Gosper Glider Gun
+        {5, 1}, {5, 2}, {6, 1}, {6, 2},
+        {5, 11}, {6, 11}, {7, 11}, {4, 12}, {8, 12}, {3, 13}, {9, 13}, {3, 14}, {9, 14}, {6, 15},
+        {4, 16}, {8, 16}, {5, 17}, {6, 17}, {7, 17}, {6, 18},
+        {3, 21}, {4, 21}, {5, 21}, {3, 22}, {4, 22}, {5, 22}, {2, 23}, {6, 23}, {1, 25}, {2, 25},
+        {6, 25}, {7, 25},
+        {3, 35}, {4, 35}, {3, 36}, {4, 36},
+
+        // Oscilador "Blinker"
+        {12, 3}, {13, 3}, {14, 3},
+
+        // Oscilador "Toad"
+        {21, 4}, {22, 4}, {23, 4}, {20, 5}, {21, 5}, {22, 5},
+
+        // Oscilador "Beacon"
+        {31, 7}, {32, 7}, {31, 8}, {34, 9}, {33, 10}, {34, 10},
+
+        // Patrón "Glider"
+        {41, 0}, {42, 1}, {40, 2}, {41, 2}, {42, 2},
+
+        // Oscilador "Blinker"
+        {15, 80}, {16, 80}, {14, 80},
+
+        // Oscilador "Toad"
+        {21, 90}, {22, 90}, {23, 90}, {20, 90}, {21, 90}, {22, 90},
+
+        // Oscilador "Beacon"
+        {31, 75}, {32, 75}, {31, 76}, {34, 77}, {33, 78}, {34, 78},
+
+        // Patrón "Glider"
+        {41, 63}, {42, 64}, {40, 65}, {41, 65}, {42, 65},
+
+        // Oscilador "Blinker"
+        {65, 35}, {66, 35}, {64, 35},
+
+        // Oscilador "Toad"
+        {71, 45}, {72, 45}, {73, 45}, {70, 45}, {71, 45}, {72, 45},
+
+        // Oscilador "Beacon"
+        {81, 37}, {82, 37}, {81, 38}, {84, 39}, {83, 40}, {84, 40},
+
+        // Patrón "Glider"
+        {91, 23}, {92, 24}, {90, 25}, {91, 25}, {92, 25}
     };
 
     for (const auto& p : initialPoints) {
@@ -154,6 +135,10 @@ void setInitialPoints() {
         point(p.x, p.y);
     }
 }
+
+
+
+
 
 
 int main(int argc, char* argv[]) {
