@@ -1,3 +1,0 @@
-/home/danval/Lab2-graphics/build/CMakeFiles/Lab2-graphics.dir
-/home/danval/Lab2-graphics/build/CMakeFiles/edit_cache.dir
-/home/danval/Lab2-graphics/build/CMakeFiles/rebuild_cache.dir
