@@ -144,7 +144,7 @@ void setInitialPoints() {
 int main(int argc, char* argv[]) {
     SDL_Init(SDL_INIT_EVERYTHING);
 
-    SDL_Window* window = SDL_CreateWindow("life", 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, 0);
+    SDL_Window* window = SDL_CreateWindow("life", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT, 0);
 
     SDL_Renderer* renderer = SDL_CreateRenderer(
         window,
